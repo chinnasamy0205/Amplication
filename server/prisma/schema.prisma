@@ -18,19 +18,19 @@ model User {
   username  String   @unique
 }
 
-model Categorymgt {
+model CategoryMgt {
   createdAt   DateTime               @default(now())
   dateRefT    DateTime?
-  dateRefT1   DateTime?
+  daterefT1   DateTime?
   id          String                 @id @default(cuid())
-  increment   Int?
-  status      EnumCategorymgtStatus?
+  increment   String?
+  status      EnumCategoryMgtStatus?
   totalRecord String?
   updatedAt   DateTime               @updatedAt
   url         String?
-  websiteName String?
+  websitename String?
 }
 
-enum EnumCategorymgtStatus {
+enum EnumCategoryMgtStatus {
   Option1
 }

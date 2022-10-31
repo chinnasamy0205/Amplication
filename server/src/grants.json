@@ -6,7 +6,43 @@
     "attributes": "*"
   },
   {
+    "role": "distributor",
+    "resource": "User",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "vendor",
+    "resource": "User",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "User",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
     "role": "user",
+    "resource": "User",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "distributor",
+    "resource": "User",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vendor",
+    "resource": "User",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
     "resource": "User",
     "action": "create:any",
     "attributes": "*"
@@ -18,7 +54,43 @@
     "attributes": "*"
   },
   {
+    "role": "distributor",
+    "resource": "User",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vendor",
+    "resource": "User",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "User",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
     "role": "user",
+    "resource": "User",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "distributor",
+    "resource": "User",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vendor",
+    "resource": "User",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
     "resource": "User",
     "action": "delete:any",
     "attributes": "*"
@@ -30,32 +102,140 @@
     "attributes": "*"
   },
   {
+    "role": "distributor",
+    "resource": "User",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vendor",
+    "resource": "User",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "User",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
     "role": "user",
-    "resource": "Categorymgt",
+    "resource": "CategoryMgt",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "distributor",
+    "resource": "CategoryMgt",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "vendor",
+    "resource": "CategoryMgt",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "CategoryMgt",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "Categorymgt",
+    "resource": "CategoryMgt",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "distributor",
+    "resource": "CategoryMgt",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vendor",
+    "resource": "CategoryMgt",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "CategoryMgt",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "Categorymgt",
+    "resource": "CategoryMgt",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "distributor",
+    "resource": "CategoryMgt",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vendor",
+    "resource": "CategoryMgt",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "CategoryMgt",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "Categorymgt",
+    "resource": "CategoryMgt",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "distributor",
+    "resource": "CategoryMgt",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vendor",
+    "resource": "CategoryMgt",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "CategoryMgt",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "Categorymgt",
+    "resource": "CategoryMgt",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "distributor",
+    "resource": "CategoryMgt",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vendor",
+    "resource": "CategoryMgt",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "CategoryMgt",
     "action": "read:any",
     "attributes": "*"
   }
