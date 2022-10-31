@@ -1,5 +1,5 @@
 {
-  "name": "@msil/server",
+  "name": "@my-service/server",
   "private": true,
   "scripts": {
     "start": "nest start",
