@@ -9,10 +9,10 @@ import { UserList } from "./user/UserList";
 import { UserCreate } from "./user/UserCreate";
 import { UserEdit } from "./user/UserEdit";
 import { UserShow } from "./user/UserShow";
-import { CategoryMgtList } from "./categoryMgt/CategoryMgtList";
-import { CategoryMgtCreate } from "./categoryMgt/CategoryMgtCreate";
-import { CategoryMgtEdit } from "./categoryMgt/CategoryMgtEdit";
-import { CategoryMgtShow } from "./categoryMgt/CategoryMgtShow";
+import { CategorymgtList } from "./categorymgt/CategorymgtList";
+import { CategorymgtCreate } from "./categorymgt/CategorymgtCreate";
+import { CategorymgtEdit } from "./categorymgt/CategorymgtEdit";
+import { CategorymgtShow } from "./categorymgt/CategorymgtShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -32,7 +32,7 @@ const App = (): React.ReactElement => {
   return (
     <div className="App">
       <Admin
-        title={"My service"}
+        title={"MSIL"}
         dataProvider={dataProvider}
         authProvider={jwtAuthProvider}
         theme={theme}
@@ -47,11 +47,11 @@ const App = (): React.ReactElement => {
           show={UserShow}
         />
         <Resource
-          name="CategoryMgt"
-          list={CategoryMgtList}
-          edit={CategoryMgtEdit}
-          create={CategoryMgtCreate}
-          show={CategoryMgtShow}
+          name="Categorymgt"
+          list={CategorymgtList}
+          edit={CategorymgtEdit}
+          create={CategorymgtCreate}
+          show={CategorymgtShow}
         />
       </Admin>
     </div>
