@@ -1,0 +1,36 @@
+datasource postgres {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  createdAt DateTime @default(now())
+  firstName String?
+  id        String   @id @default(cuid())
+  lastName  String?
+  password  String
+  roles     Json
+  updatedAt DateTime @updatedAt
+  username  String   @unique
+}
+
+model Categorymgt {
+  createdAt   DateTime               @default(now())
+  dateRefT    DateTime?
+  dateRefT1   DateTime?
+  id          String                 @id @default(cuid())
+  increment   Int?
+  status      EnumCategorymgtStatus?
+  totalRecord String?
+  updatedAt   DateTime               @updatedAt
+  url         String?
+  websiteName String?
+}
+
+enum EnumCategorymgtStatus {
+  Option1
+}
