@@ -8,6 +8,7 @@ import { AddressModule } from "./address/address.module";
 import { ProductModule } from "./product/product.module";
 import { TestModule } from "./test/test.module";
 import { Test1Module } from "./test1/test1.module";
+import { CategoryMgtModule } from "./categoryMgt/categoryMgt.module";
 import { ACLModule } from "./auth/acl.module";
 import { AuthModule } from "./auth/auth.module";
 import { HealthModule } from "./health/health.module";
@@ -27,6 +28,7 @@ import { GraphQLModule } from "@nestjs/graphql";
     ProductModule,
     TestModule,
     Test1Module,
+    CategoryMgtModule,
     ACLModule,
     AuthModule,
     HealthModule,

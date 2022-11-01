@@ -33,6 +33,10 @@ import { Test1List } from "./test1/Test1List";
 import { Test1Create } from "./test1/Test1Create";
 import { Test1Edit } from "./test1/Test1Edit";
 import { Test1Show } from "./test1/Test1Show";
+import { CategoryMgtList } from "./categoryMgt/CategoryMgtList";
+import { CategoryMgtCreate } from "./categoryMgt/CategoryMgtCreate";
+import { CategoryMgtEdit } from "./categoryMgt/CategoryMgtEdit";
+import { CategoryMgtShow } from "./categoryMgt/CategoryMgtShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -107,6 +111,13 @@ const App = (): React.ReactElement => {
           edit={Test1Edit}
           create={Test1Create}
           show={Test1Show}
+        />
+        <Resource
+          name="CategoryMgt"
+          list={CategoryMgtList}
+          edit={CategoryMgtEdit}
+          create={CategoryMgtCreate}
+          show={CategoryMgtShow}
         />
       </Admin>
     </div>
