@@ -77,3 +77,20 @@ model Test1 {
   id        String   @id @default(cuid())
   updatedAt DateTime @updatedAt
 }
+
+model CategoryMgt {
+  createdAt   DateTime               @default(now())
+  dateRefT    DateTime?
+  dateRefT1   DateTime?
+  id          String                 @id @default(cuid())
+  incremental String?
+  status      EnumCategoryMgtStatus?
+  totalCount  String?
+  updatedAt   DateTime               @updatedAt
+  url         String?
+  websiteName String?
+}
+
+enum EnumCategoryMgtStatus {
+  InAtive
+}
