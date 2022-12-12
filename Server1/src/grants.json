@@ -1,8 +1,32 @@
 [
   {
+    "role": "vendor",
+    "resource": "User",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "User",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
     "role": "user",
     "resource": "User",
     "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "vendor",
+    "resource": "User",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "User",
+    "action": "create:any",
     "attributes": "*"
   },
   {
@@ -12,7 +36,13 @@
     "attributes": "*"
   },
   {
-    "role": "user",
+    "role": "vendor",
+    "resource": "User",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
     "resource": "User",
     "action": "update:any",
     "attributes": "*"
@@ -20,7 +50,37 @@
   {
     "role": "user",
     "resource": "User",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vendor",
+    "resource": "User",
     "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "User",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "User",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vendor",
+    "resource": "User",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "User",
+    "action": "read:any",
     "attributes": "*"
   },
   {
@@ -30,9 +90,15 @@
     "attributes": "*"
   },
   {
-    "role": "user",
+    "role": "admin",
     "resource": "CategoryMgt",
     "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "CategoryMgt",
+    "action": "create:any",
     "attributes": "*"
   },
   {
@@ -42,15 +108,27 @@
     "attributes": "*"
   },
   {
-    "role": "user",
+    "role": "admin",
     "resource": "CategoryMgt",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "user",
+    "role": "admin",
     "resource": "CategoryMgt",
     "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vendor",
+    "resource": "CategoryMgt",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "CategoryMgt",
+    "action": "read:any",
     "attributes": "*"
   },
   {
@@ -60,9 +138,33 @@
     "attributes": "*"
   },
   {
+    "role": "vendor",
+    "resource": "Test",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "Test",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
     "role": "user",
     "resource": "Test",
     "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "vendor",
+    "resource": "Test",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "Test",
+    "action": "create:any",
     "attributes": "*"
   },
   {
@@ -72,7 +174,13 @@
     "attributes": "*"
   },
   {
-    "role": "user",
+    "role": "vendor",
+    "resource": "Test",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
     "resource": "Test",
     "action": "update:any",
     "attributes": "*"
@@ -80,7 +188,37 @@
   {
     "role": "user",
     "resource": "Test",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vendor",
+    "resource": "Test",
     "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "Test",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "Test",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vendor",
+    "resource": "Test",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "Test",
+    "action": "read:any",
     "attributes": "*"
   },
   {
