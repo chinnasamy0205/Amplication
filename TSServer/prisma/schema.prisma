@@ -1,0 +1,179 @@
+datasource postgres {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  createdAt              DateTime               @default(now())
+  firstName              String?
+  hmProtestAccounts      HmProtestAccount[]
+  hmProtestAccountUser   HmProtestAccountUser?  @relation(fields: [hmProtestAccountUserId], references: [id])
+  hmProtestAccountUserId String?
+  hmProtestFeature       HmProtestFeature?      @relation(fields: [hmProtestFeatureId], references: [id])
+  hmProtestFeatureId     String?
+  hmProtestProjects      HmProtestProject[]
+  hmProtestRequirements  HmProtestRequirement[]
+  id                     String                 @id @default(cuid())
+  lastName               String?
+  password               String
+  roles                  Json
+  updatedAt              DateTime               @updatedAt
+  userDesc               String?
+  userEndDate            DateTime?
+  username               String                 @unique
+  userPlan               EnumUserUserPlan?
+  userStatus             EnumUserUserStatus?
+  userStDate             DateTime?
+}
+
+model Order {
+  createdAt  DateTime  @default(now())
+  customer   Customer? @relation(fields: [customerId], references: [id])
+  customerId String?
+  discount   Float?
+  id         String    @id @default(cuid())
+  product    Product?  @relation(fields: [productId], references: [id])
+  productId  String?
+  quantity   Int?
+  totalPrice Int?
+  updatedAt  DateTime  @updatedAt
+}
+
+model Customer {
+  address   Address? @relation(fields: [addressId], references: [id])
+  addressId String?
+  createdAt DateTime @default(now())
+  email     String?
+  firstName String?
+  id        String   @id @default(cuid())
+  lastName  String?
+  orders    Order[]
+  phone     String?
+  updatedAt DateTime @updatedAt
+}
+
+model Address {
+  address_1 String?
+  address_2 String?
+  city      String?
+  createdAt DateTime   @default(now())
+  customers Customer[]
+  id        String     @id @default(cuid())
+  state     String?
+  updatedAt DateTime   @updatedAt
+  zip       Int?
+}
+
+model Product {
+  createdAt   DateTime @default(now())
+  description String?
+  id          String   @id @default(cuid())
+  itemPrice   Float?
+  name        String?
+  orders      Order[]
+  updatedAt   DateTime @updatedAt
+}
+
+model Answer {
+  answervalue String?
+  createdAt   DateTime @default(now())
+  id          String   @id @default(cuid())
+  updatedAt   DateTime @updatedAt
+}
+
+model HmProtestAccount {
+  accountBdm            String?
+  accountDesc           String?
+  accountDm             String?
+  accountEndDate        DateTime?
+  accountId             String?
+  accountName           String
+  accountPm             String?
+  accountStatus         EnumHmProtestAccountAccountStatus?
+  accountStDate         DateTime
+  createdAt             DateTime                           @default(now())
+  hmProtestAccountUsers HmProtestAccountUser[]
+  hmProtestProjects     HmProtestProject[]
+  id                    String                             @id @default(cuid())
+  updatedAt             DateTime                           @updatedAt
+  userId                User[]
+}
+
+model HmProtestProject {
+  accountId      HmProtestAccount[]
+  createdAt      DateTime           @default(now())
+  id             String             @id @default(cuid())
+  projectDesc    String?
+  projectEndDate DateTime?
+  projectId      String?
+  projectName    String?
+  projectStDate  DateTime?
+  updatedAt      DateTime           @updatedAt
+  userId         User[]
+}
+
+model HmProtestFeature {
+  createdAt             DateTime               @default(now())
+  featureDesc           String?
+  featureEndDate        DateTime?
+  featureId             String
+  featureName           String
+  featurePrereq         String?
+  featureProjId         String?
+  featureStDate         DateTime
+  hmProtestRequirements HmProtestRequirement[]
+  id                    String                 @id @default(cuid())
+  updatedAt             DateTime               @updatedAt
+  userId                User[]
+}
+
+model HmProtestRequirement {
+  createdAt    DateTime                        @default(now())
+  id           String                          @id @default(cuid())
+  modelChanged Int?
+  reqDesc      String?
+  reqFeatureId HmProtestFeature[]
+  reqId        String?
+  reqModelname String?
+  reqModelpath String?
+  reqName      String?
+  reqPrereq    String?
+  reqType      String?
+  status       EnumHmProtestRequirementStatus?
+  updatedAt    DateTime                        @updatedAt
+  userId       User[]
+}
+
+model HmProtestAccountUser {
+  accountId       HmProtestAccount[]
+  createdAt       DateTime           @default(now())
+  id              String             @id @default(cuid())
+  updatedAt       DateTime           @updatedAt
+  userAccountRole Int?
+  userId          User[]
+}
+
+enum EnumUserUserPlan {
+  Basic
+  Full
+  Free
+}
+
+enum EnumUserUserStatus {
+  Active
+  InActive
+}
+
+enum EnumHmProtestAccountAccountStatus {
+  Active
+  InActive
+}
+
+enum EnumHmProtestRequirementStatus {
+  Active
+  InActive
+}
