@@ -152,18 +152,6 @@
   {
     "role": "user",
     "resource": "CategoryMgt2",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "CategoryMgt2",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "CategoryMgt2",
     "action": "update:any",
     "attributes": "*"
   },
