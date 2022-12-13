@@ -1,4 +1,4 @@
-FROM node:16.16 AS base
+FROM node:19.1 AS base
 
 WORKDIR /app
 
@@ -14,7 +14,7 @@ COPY . .
 
 RUN npm run build
 
-FROM node:16.16 AS prod
+FROM node:19.1 AS prod
 
 WORKDIR /app
 
@@ -24,7 +24,7 @@ COPY --from=base /app/dist ./dist
 COPY --from=base /app/prisma ./prisma
 COPY --from=base /app/scripts ./scripts
 COPY --from=base /app/src ./src
-COPY --from=base /app/tsconfig* .
+COPY --from=base /app/tsconfig* ./
 
 EXPOSE 3000
 
