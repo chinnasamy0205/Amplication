@@ -1,0 +1,41 @@
+datasource postgres {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  accounts  Account[]
+  createdAt DateTime  @default(now())
+  firstName String?
+  id        String    @id @default(cuid())
+  lastName  String?
+  password  String
+  roles     Json
+  updatedAt DateTime  @updatedAt
+  username  String    @unique
+}
+
+model Account {
+  accountBdm     String?
+  accountDesc    String?
+  accountDm      String?
+  accountEndDate DateTime?
+  accountId      String?
+  accountName    String?
+  accountPm      String?
+  accountStatus  EnumAccountAccountStatus?
+  accountStDate  DateTime?
+  createdAt      DateTime                  @default(now())
+  id             String                    @id @default(cuid())
+  updatedAt      DateTime                  @updatedAt
+  userId         User[]
+}
+
+enum EnumAccountAccountStatus {
+  Active
+  InActive
+}
