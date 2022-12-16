@@ -10,17 +10,15 @@ https://docs.amplication.com/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { PrismaService } from "nestjs-prisma";
-
 import {
   Prisma,
   User,
-  HmProtestAccount,
-  HmProtestProject,
-  HmProtestRequirement,
-  HmProtestAccountUser,
-  HmProtestFeature,
+  Account,
+  Project,
+  Requirement,
+  AccountUser,
+  Feature,
 } from "@prisma/client";
-
 import { PasswordService } from "../../auth/password.service";
 import { transformStringFieldUpdateInput } from "../../prisma.util";
 
@@ -84,8 +82,8 @@ export class UserServiceBase {
 
   async findHmProtestAccounts(
     parentId: string,
-    args: Prisma.HmProtestAccountFindManyArgs
-  ): Promise<HmProtestAccount[]> {
+    args: Prisma.AccountFindManyArgs
+  ): Promise<Account[]> {
     return this.prisma.user
       .findUniqueOrThrow({
         where: { id: parentId },
@@ -95,8 +93,8 @@ export class UserServiceBase {
 
   async findHmProtestProjects(
     parentId: string,
-    args: Prisma.HmProtestProjectFindManyArgs
-  ): Promise<HmProtestProject[]> {
+    args: Prisma.ProjectFindManyArgs
+  ): Promise<Project[]> {
     return this.prisma.user
       .findUniqueOrThrow({
         where: { id: parentId },
@@ -106,8 +104,8 @@ export class UserServiceBase {
 
   async findHmProtestRequirements(
     parentId: string,
-    args: Prisma.HmProtestRequirementFindManyArgs
-  ): Promise<HmProtestRequirement[]> {
+    args: Prisma.RequirementFindManyArgs
+  ): Promise<Requirement[]> {
     return this.prisma.user
       .findUniqueOrThrow({
         where: { id: parentId },
@@ -115,9 +113,7 @@ export class UserServiceBase {
       .hmProtestRequirements(args);
   }
 
-  async getHmProtestAccountUser(
-    parentId: string
-  ): Promise<HmProtestAccountUser | null> {
+  async getHmProtestAccountUser(parentId: string): Promise<AccountUser | null> {
     return this.prisma.user
       .findUnique({
         where: { id: parentId },
@@ -125,9 +121,7 @@ export class UserServiceBase {
       .hmProtestAccountUser();
   }
 
-  async getHmProtestFeature(
-    parentId: string
-  ): Promise<HmProtestFeature | null> {
+  async getHmProtestFeature(parentId: string): Promise<Feature | null> {
     return this.prisma.user
       .findUnique({
         where: { id: parentId },

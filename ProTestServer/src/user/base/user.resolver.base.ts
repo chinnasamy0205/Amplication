@@ -25,14 +25,14 @@ import { DeleteUserArgs } from "./DeleteUserArgs";
 import { UserFindManyArgs } from "./UserFindManyArgs";
 import { UserFindUniqueArgs } from "./UserFindUniqueArgs";
 import { User } from "./User";
-import { HmProtestAccountFindManyArgs } from "../../hmProtestAccount/base/HmProtestAccountFindManyArgs";
-import { HmProtestAccount } from "../../hmProtestAccount/base/HmProtestAccount";
-import { HmProtestProjectFindManyArgs } from "../../hmProtestProject/base/HmProtestProjectFindManyArgs";
-import { HmProtestProject } from "../../hmProtestProject/base/HmProtestProject";
-import { HmProtestRequirementFindManyArgs } from "../../hmProtestRequirement/base/HmProtestRequirementFindManyArgs";
-import { HmProtestRequirement } from "../../hmProtestRequirement/base/HmProtestRequirement";
-import { HmProtestAccountUser } from "../../hmProtestAccountUser/base/HmProtestAccountUser";
-import { HmProtestFeature } from "../../hmProtestFeature/base/HmProtestFeature";
+import { AccountFindManyArgs } from "../../account/base/AccountFindManyArgs";
+import { Account } from "../../account/base/Account";
+import { ProjectFindManyArgs } from "../../project/base/ProjectFindManyArgs";
+import { Project } from "../../project/base/Project";
+import { RequirementFindManyArgs } from "../../requirement/base/RequirementFindManyArgs";
+import { Requirement } from "../../requirement/base/Requirement";
+import { AccountUser } from "../../accountUser/base/AccountUser";
+import { Feature } from "../../feature/base/Feature";
 import { UserService } from "../user.service";
 
 @graphql.Resolver(() => User)
@@ -173,16 +173,16 @@ export class UserResolverBase {
   }
 
   @common.UseInterceptors(AclFilterResponseInterceptor)
-  @graphql.ResolveField(() => [HmProtestAccount])
+  @graphql.ResolveField(() => [Account])
   @nestAccessControl.UseRoles({
-    resource: "HmProtestAccount",
+    resource: "Account",
     action: "read",
     possession: "any",
   })
   async hmProtestAccounts(
     @graphql.Parent() parent: User,
-    @graphql.Args() args: HmProtestAccountFindManyArgs
-  ): Promise<HmProtestAccount[]> {
+    @graphql.Args() args: AccountFindManyArgs
+  ): Promise<Account[]> {
     const results = await this.service.findHmProtestAccounts(parent.id, args);
 
     if (!results) {
@@ -193,16 +193,16 @@ export class UserResolverBase {
   }
 
   @common.UseInterceptors(AclFilterResponseInterceptor)
-  @graphql.ResolveField(() => [HmProtestProject])
+  @graphql.ResolveField(() => [Project])
   @nestAccessControl.UseRoles({
-    resource: "HmProtestProject",
+    resource: "Project",
     action: "read",
     possession: "any",
   })
   async hmProtestProjects(
     @graphql.Parent() parent: User,
-    @graphql.Args() args: HmProtestProjectFindManyArgs
-  ): Promise<HmProtestProject[]> {
+    @graphql.Args() args: ProjectFindManyArgs
+  ): Promise<Project[]> {
     const results = await this.service.findHmProtestProjects(parent.id, args);
 
     if (!results) {
@@ -213,16 +213,16 @@ export class UserResolverBase {
   }
 
   @common.UseInterceptors(AclFilterResponseInterceptor)
-  @graphql.ResolveField(() => [HmProtestRequirement])
+  @graphql.ResolveField(() => [Requirement])
   @nestAccessControl.UseRoles({
-    resource: "HmProtestRequirement",
+    resource: "Requirement",
     action: "read",
     possession: "any",
   })
   async hmProtestRequirements(
     @graphql.Parent() parent: User,
-    @graphql.Args() args: HmProtestRequirementFindManyArgs
-  ): Promise<HmProtestRequirement[]> {
+    @graphql.Args() args: RequirementFindManyArgs
+  ): Promise<Requirement[]> {
     const results = await this.service.findHmProtestRequirements(
       parent.id,
       args
@@ -236,15 +236,15 @@ export class UserResolverBase {
   }
 
   @common.UseInterceptors(AclFilterResponseInterceptor)
-  @graphql.ResolveField(() => HmProtestAccountUser, { nullable: true })
+  @graphql.ResolveField(() => AccountUser, { nullable: true })
   @nestAccessControl.UseRoles({
-    resource: "HmProtestAccountUser",
+    resource: "AccountUser",
     action: "read",
     possession: "any",
   })
   async hmProtestAccountUser(
     @graphql.Parent() parent: User
-  ): Promise<HmProtestAccountUser | null> {
+  ): Promise<AccountUser | null> {
     const result = await this.service.getHmProtestAccountUser(parent.id);
 
     if (!result) {
@@ -254,15 +254,15 @@ export class UserResolverBase {
   }
 
   @common.UseInterceptors(AclFilterResponseInterceptor)
-  @graphql.ResolveField(() => HmProtestFeature, { nullable: true })
+  @graphql.ResolveField(() => Feature, { nullable: true })
   @nestAccessControl.UseRoles({
-    resource: "HmProtestFeature",
+    resource: "Feature",
     action: "read",
     possession: "any",
   })
   async hmProtestFeature(
     @graphql.Parent() parent: User
-  ): Promise<HmProtestFeature | null> {
+  ): Promise<Feature | null> {
     const result = await this.service.getHmProtestFeature(parent.id);
 
     if (!result) {

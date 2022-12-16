@@ -8,8 +8,8 @@ import {
   ReferenceField,
 } from "react-admin";
 import Pagination from "../Components/Pagination";
-import { HMPROTESTACCOUNTUSER_TITLE_FIELD } from "../hmProtestAccountUser/HmProtestAccountUserTitle";
-import { HMPROTESTFEATURE_TITLE_FIELD } from "../hmProtestFeature/HmProtestFeatureTitle";
+import { ACCOUNTUSER_TITLE_FIELD } from "../accountUser/AccountUserTitle";
+import { FEATURE_TITLE_FIELD } from "../feature/FeatureTitle";
 
 export const UserList = (props: ListProps): React.ReactElement => {
   return (
@@ -25,17 +25,17 @@ export const UserList = (props: ListProps): React.ReactElement => {
         <TextField label="First Name" source="firstName" />
         <ReferenceField
           label="hm_protest_account_user"
-          source="hmprotestaccountuser.id"
-          reference="HmProtestAccountUser"
+          source="accountuser.id"
+          reference="AccountUser"
         >
-          <TextField source={HMPROTESTACCOUNTUSER_TITLE_FIELD} />
+          <TextField source={ACCOUNTUSER_TITLE_FIELD} />
         </ReferenceField>
         <ReferenceField
           label="hm_protest_feature"
-          source="hmprotestfeature.id"
-          reference="HmProtestFeature"
+          source="feature.id"
+          reference="Feature"
         >
-          <TextField source={HMPROTESTFEATURE_TITLE_FIELD} />
+          <TextField source={FEATURE_TITLE_FIELD} />
         </ReferenceField>
         <TextField label="ID" source="id" />
         <TextField label="Last Name" source="lastName" />

@@ -14,11 +14,11 @@ import { ApiProperty } from "@nestjs/swagger";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { Type } from "class-transformer";
 import { IsOptional, ValidateNested, IsEnum } from "class-validator";
-import { HmProtestAccountListRelationFilter } from "../../hmProtestAccount/base/HmProtestAccountListRelationFilter";
-import { HmProtestAccountUserWhereUniqueInput } from "../../hmProtestAccountUser/base/HmProtestAccountUserWhereUniqueInput";
-import { HmProtestFeatureWhereUniqueInput } from "../../hmProtestFeature/base/HmProtestFeatureWhereUniqueInput";
-import { HmProtestProjectListRelationFilter } from "../../hmProtestProject/base/HmProtestProjectListRelationFilter";
-import { HmProtestRequirementListRelationFilter } from "../../hmProtestRequirement/base/HmProtestRequirementListRelationFilter";
+import { AccountListRelationFilter } from "../../account/base/AccountListRelationFilter";
+import { AccountUserWhereUniqueInput } from "../../accountUser/base/AccountUserWhereUniqueInput";
+import { FeatureWhereUniqueInput } from "../../feature/base/FeatureWhereUniqueInput";
+import { ProjectListRelationFilter } from "../../project/base/ProjectListRelationFilter";
+import { RequirementListRelationFilter } from "../../requirement/base/RequirementListRelationFilter";
 import { StringFilter } from "../../util/StringFilter";
 import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
 import { EnumUserUserPlan } from "./EnumUserUserPlan";
@@ -38,63 +38,63 @@ class UserWhereInput {
 
   @ApiProperty({
     required: false,
-    type: () => HmProtestAccountListRelationFilter,
+    type: () => AccountListRelationFilter,
   })
   @ValidateNested()
-  @Type(() => HmProtestAccountListRelationFilter)
+  @Type(() => AccountListRelationFilter)
   @IsOptional()
-  @Field(() => HmProtestAccountListRelationFilter, {
+  @Field(() => AccountListRelationFilter, {
     nullable: true,
   })
-  hmProtestAccounts?: HmProtestAccountListRelationFilter;
+  hmProtestAccounts?: AccountListRelationFilter;
 
   @ApiProperty({
     required: false,
-    type: () => HmProtestAccountUserWhereUniqueInput,
+    type: () => AccountUserWhereUniqueInput,
   })
   @ValidateNested()
-  @Type(() => HmProtestAccountUserWhereUniqueInput)
+  @Type(() => AccountUserWhereUniqueInput)
   @IsOptional()
-  @Field(() => HmProtestAccountUserWhereUniqueInput, {
+  @Field(() => AccountUserWhereUniqueInput, {
     nullable: true,
   })
-  hmProtestAccountUser?: HmProtestAccountUserWhereUniqueInput;
+  hmProtestAccountUser?: AccountUserWhereUniqueInput;
 
   @ApiProperty({
     required: false,
-    type: () => HmProtestFeatureWhereUniqueInput,
+    type: () => FeatureWhereUniqueInput,
   })
   @ValidateNested()
-  @Type(() => HmProtestFeatureWhereUniqueInput)
+  @Type(() => FeatureWhereUniqueInput)
   @IsOptional()
-  @Field(() => HmProtestFeatureWhereUniqueInput, {
+  @Field(() => FeatureWhereUniqueInput, {
     nullable: true,
   })
-  hmProtestFeature?: HmProtestFeatureWhereUniqueInput;
+  hmProtestFeature?: FeatureWhereUniqueInput;
 
   @ApiProperty({
     required: false,
-    type: () => HmProtestProjectListRelationFilter,
+    type: () => ProjectListRelationFilter,
   })
   @ValidateNested()
-  @Type(() => HmProtestProjectListRelationFilter)
+  @Type(() => ProjectListRelationFilter)
   @IsOptional()
-  @Field(() => HmProtestProjectListRelationFilter, {
+  @Field(() => ProjectListRelationFilter, {
     nullable: true,
   })
-  hmProtestProjects?: HmProtestProjectListRelationFilter;
+  hmProtestProjects?: ProjectListRelationFilter;
 
   @ApiProperty({
     required: false,
-    type: () => HmProtestRequirementListRelationFilter,
+    type: () => RequirementListRelationFilter,
   })
   @ValidateNested()
-  @Type(() => HmProtestRequirementListRelationFilter)
+  @Type(() => RequirementListRelationFilter)
   @IsOptional()
-  @Field(() => HmProtestRequirementListRelationFilter, {
+  @Field(() => RequirementListRelationFilter, {
     nullable: true,
   })
-  hmProtestRequirements?: HmProtestRequirementListRelationFilter;
+  hmProtestRequirements?: RequirementListRelationFilter;
 
   @ApiProperty({
     required: false,

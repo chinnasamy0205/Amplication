@@ -8,23 +8,23 @@ generator client {
 }
 
 model User {
-  createdAt              DateTime               @default(now())
+  createdAt              DateTime            @default(now())
   firstName              String?
-  hmProtestAccounts      HmProtestAccount[]
-  hmProtestAccountUser   HmProtestAccountUser?  @relation(fields: [hmProtestAccountUserId], references: [id])
+  hmProtestAccounts      Account[]
+  hmProtestAccountUser   AccountUser?        @relation(fields: [hmProtestAccountUserId], references: [id])
   hmProtestAccountUserId String?
-  hmProtestFeature       HmProtestFeature?      @relation(fields: [hmProtestFeatureId], references: [id])
+  hmProtestFeature       Feature?            @relation(fields: [hmProtestFeatureId], references: [id])
   hmProtestFeatureId     String?
-  hmProtestProjects      HmProtestProject[]
-  hmProtestRequirements  HmProtestRequirement[]
-  id                     String                 @id @default(cuid())
+  hmProtestProjects      Project[]
+  hmProtestRequirements  Requirement[]
+  id                     String              @id @default(cuid())
   lastName               String?
   password               String
   roles                  Json
-  updatedAt              DateTime               @updatedAt
+  updatedAt              DateTime            @updatedAt
   userDesc               String?
   userEndDate            DateTime?
-  username               String                 @unique
+  username               String              @unique
   userPlan               EnumUserUserPlan?
   userStatus             EnumUserUserStatus?
   userStDate             DateTime?
@@ -85,7 +85,7 @@ model Answer {
   updatedAt   DateTime @updatedAt
 }
 
-model HmProtestAccount {
+model Account {
   accountBdm            String?
   accountDesc           String?
   accountDm             String?
@@ -93,31 +93,31 @@ model HmProtestAccount {
   accountId             String?
   accountName           String
   accountPm             String?
-  accountStatus         EnumHmProtestAccountAccountStatus?
+  accountStatus         EnumAccountAccountStatus?
   accountStDate         DateTime
-  createdAt             DateTime                           @default(now())
-  hmProtestAccountUsers HmProtestAccountUser[]
-  hmProtestProjects     HmProtestProject[]
-  id                    String                             @id @default(cuid())
-  updatedAt             DateTime                           @updatedAt
+  createdAt             DateTime                  @default(now())
+  hmProtestAccountUsers AccountUser[]
+  hmProtestProjects     Project[]
+  id                    String                    @id @default(cuid())
+  updatedAt             DateTime                  @updatedAt
   userId                User[]
 }
 
-model HmProtestProject {
-  accountId      HmProtestAccount[]
-  createdAt      DateTime           @default(now())
-  id             String             @id @default(cuid())
+model Project {
+  accountId      Account[]
+  createdAt      DateTime  @default(now())
+  id             String    @id @default(cuid())
   projectDesc    String?
   projectEndDate DateTime?
   projectId      String?
   projectName    String?
   projectStDate  DateTime?
-  updatedAt      DateTime           @updatedAt
+  updatedAt      DateTime  @updatedAt
   userId         User[]
 }
 
-model HmProtestFeature {
-  createdAt             DateTime               @default(now())
+model Feature {
+  createdAt             DateTime      @default(now())
   featureDesc           String?
   featureEndDate        DateTime?
   featureId             String
@@ -125,34 +125,34 @@ model HmProtestFeature {
   featurePrereq         String?
   featureProjId         String?
   featureStDate         DateTime
-  hmProtestRequirements HmProtestRequirement[]
-  id                    String                 @id @default(cuid())
-  updatedAt             DateTime               @updatedAt
+  hmProtestRequirements Requirement[]
+  id                    String        @id @default(cuid())
+  updatedAt             DateTime      @updatedAt
   userId                User[]
 }
 
-model HmProtestRequirement {
-  createdAt    DateTime                        @default(now())
-  id           String                          @id @default(cuid())
+model Requirement {
+  createdAt    DateTime               @default(now())
+  id           String                 @id @default(cuid())
   modelChanged Int?
   reqDesc      String?
-  reqFeatureId HmProtestFeature[]
+  reqFeatureId Feature[]
   reqId        String?
   reqModelname String?
   reqModelpath String?
   reqName      String?
   reqPrereq    String?
   reqType      String?
-  status       EnumHmProtestRequirementStatus?
-  updatedAt    DateTime                        @updatedAt
+  status       EnumRequirementStatus?
+  updatedAt    DateTime               @updatedAt
   userId       User[]
 }
 
-model HmProtestAccountUser {
-  accountId       HmProtestAccount[]
-  createdAt       DateTime           @default(now())
-  id              String             @id @default(cuid())
-  updatedAt       DateTime           @updatedAt
+model AccountUser {
+  accountId       Account[]
+  createdAt       DateTime  @default(now())
+  id              String    @id @default(cuid())
+  updatedAt       DateTime  @updatedAt
   userAccountRole Int?
   userId          User[]
 }
@@ -168,12 +168,12 @@ enum EnumUserUserStatus {
   InActive
 }
 
-enum EnumHmProtestAccountAccountStatus {
+enum EnumAccountAccountStatus {
   Active
   InActive
 }
 
-enum EnumHmProtestRequirementStatus {
+enum EnumRequirementStatus {
   Active
   InActive
 }

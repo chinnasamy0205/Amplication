@@ -29,26 +29,26 @@ import { AnswerList } from "./answer/AnswerList";
 import { AnswerCreate } from "./answer/AnswerCreate";
 import { AnswerEdit } from "./answer/AnswerEdit";
 import { AnswerShow } from "./answer/AnswerShow";
-import { HmProtestAccountList } from "./hmProtestAccount/HmProtestAccountList";
-import { HmProtestAccountCreate } from "./hmProtestAccount/HmProtestAccountCreate";
-import { HmProtestAccountEdit } from "./hmProtestAccount/HmProtestAccountEdit";
-import { HmProtestAccountShow } from "./hmProtestAccount/HmProtestAccountShow";
-import { HmProtestProjectList } from "./hmProtestProject/HmProtestProjectList";
-import { HmProtestProjectCreate } from "./hmProtestProject/HmProtestProjectCreate";
-import { HmProtestProjectEdit } from "./hmProtestProject/HmProtestProjectEdit";
-import { HmProtestProjectShow } from "./hmProtestProject/HmProtestProjectShow";
-import { HmProtestFeatureList } from "./hmProtestFeature/HmProtestFeatureList";
-import { HmProtestFeatureCreate } from "./hmProtestFeature/HmProtestFeatureCreate";
-import { HmProtestFeatureEdit } from "./hmProtestFeature/HmProtestFeatureEdit";
-import { HmProtestFeatureShow } from "./hmProtestFeature/HmProtestFeatureShow";
-import { HmProtestRequirementList } from "./hmProtestRequirement/HmProtestRequirementList";
-import { HmProtestRequirementCreate } from "./hmProtestRequirement/HmProtestRequirementCreate";
-import { HmProtestRequirementEdit } from "./hmProtestRequirement/HmProtestRequirementEdit";
-import { HmProtestRequirementShow } from "./hmProtestRequirement/HmProtestRequirementShow";
-import { HmProtestAccountUserList } from "./hmProtestAccountUser/HmProtestAccountUserList";
-import { HmProtestAccountUserCreate } from "./hmProtestAccountUser/HmProtestAccountUserCreate";
-import { HmProtestAccountUserEdit } from "./hmProtestAccountUser/HmProtestAccountUserEdit";
-import { HmProtestAccountUserShow } from "./hmProtestAccountUser/HmProtestAccountUserShow";
+import { AccountList } from "./account/AccountList";
+import { AccountCreate } from "./account/AccountCreate";
+import { AccountEdit } from "./account/AccountEdit";
+import { AccountShow } from "./account/AccountShow";
+import { ProjectList } from "./project/ProjectList";
+import { ProjectCreate } from "./project/ProjectCreate";
+import { ProjectEdit } from "./project/ProjectEdit";
+import { ProjectShow } from "./project/ProjectShow";
+import { FeatureList } from "./feature/FeatureList";
+import { FeatureCreate } from "./feature/FeatureCreate";
+import { FeatureEdit } from "./feature/FeatureEdit";
+import { FeatureShow } from "./feature/FeatureShow";
+import { RequirementList } from "./requirement/RequirementList";
+import { RequirementCreate } from "./requirement/RequirementCreate";
+import { RequirementEdit } from "./requirement/RequirementEdit";
+import { RequirementShow } from "./requirement/RequirementShow";
+import { AccountUserList } from "./accountUser/AccountUserList";
+import { AccountUserCreate } from "./accountUser/AccountUserCreate";
+import { AccountUserEdit } from "./accountUser/AccountUserEdit";
+import { AccountUserShow } from "./accountUser/AccountUserShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -118,39 +118,39 @@ const App = (): React.ReactElement => {
           show={AnswerShow}
         />
         <Resource
-          name="HmProtestAccount"
-          list={HmProtestAccountList}
-          edit={HmProtestAccountEdit}
-          create={HmProtestAccountCreate}
-          show={HmProtestAccountShow}
+          name="Account"
+          list={AccountList}
+          edit={AccountEdit}
+          create={AccountCreate}
+          show={AccountShow}
         />
         <Resource
-          name="HmProtestProject"
-          list={HmProtestProjectList}
-          edit={HmProtestProjectEdit}
-          create={HmProtestProjectCreate}
-          show={HmProtestProjectShow}
+          name="Project"
+          list={ProjectList}
+          edit={ProjectEdit}
+          create={ProjectCreate}
+          show={ProjectShow}
         />
         <Resource
-          name="HmProtestFeature"
-          list={HmProtestFeatureList}
-          edit={HmProtestFeatureEdit}
-          create={HmProtestFeatureCreate}
-          show={HmProtestFeatureShow}
+          name="Feature"
+          list={FeatureList}
+          edit={FeatureEdit}
+          create={FeatureCreate}
+          show={FeatureShow}
         />
         <Resource
-          name="HmProtestRequirement"
-          list={HmProtestRequirementList}
-          edit={HmProtestRequirementEdit}
-          create={HmProtestRequirementCreate}
-          show={HmProtestRequirementShow}
+          name="Requirement"
+          list={RequirementList}
+          edit={RequirementEdit}
+          create={RequirementCreate}
+          show={RequirementShow}
         />
         <Resource
-          name="HmProtestAccountUser"
-          list={HmProtestAccountUserList}
-          edit={HmProtestAccountUserEdit}
-          create={HmProtestAccountUserCreate}
-          show={HmProtestAccountUserShow}
+          name="AccountUser"
+          list={AccountUserList}
+          edit={AccountUserEdit}
+          create={AccountUserCreate}
+          show={AccountUserShow}
         />
       </Admin>
     </div>

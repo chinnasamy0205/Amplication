@@ -27,15 +27,15 @@ import { UserWhereUniqueInput } from "./UserWhereUniqueInput";
 import { UserFindManyArgs } from "./UserFindManyArgs";
 import { UserUpdateInput } from "./UserUpdateInput";
 import { User } from "./User";
-import { HmProtestAccountFindManyArgs } from "../../hmProtestAccount/base/HmProtestAccountFindManyArgs";
-import { HmProtestAccount } from "../../hmProtestAccount/base/HmProtestAccount";
-import { HmProtestAccountWhereUniqueInput } from "../../hmProtestAccount/base/HmProtestAccountWhereUniqueInput";
-import { HmProtestProjectFindManyArgs } from "../../hmProtestProject/base/HmProtestProjectFindManyArgs";
-import { HmProtestProject } from "../../hmProtestProject/base/HmProtestProject";
-import { HmProtestProjectWhereUniqueInput } from "../../hmProtestProject/base/HmProtestProjectWhereUniqueInput";
-import { HmProtestRequirementFindManyArgs } from "../../hmProtestRequirement/base/HmProtestRequirementFindManyArgs";
-import { HmProtestRequirement } from "../../hmProtestRequirement/base/HmProtestRequirement";
-import { HmProtestRequirementWhereUniqueInput } from "../../hmProtestRequirement/base/HmProtestRequirementWhereUniqueInput";
+import { AccountFindManyArgs } from "../../account/base/AccountFindManyArgs";
+import { Account } from "../../account/base/Account";
+import { AccountWhereUniqueInput } from "../../account/base/AccountWhereUniqueInput";
+import { ProjectFindManyArgs } from "../../project/base/ProjectFindManyArgs";
+import { Project } from "../../project/base/Project";
+import { ProjectWhereUniqueInput } from "../../project/base/ProjectWhereUniqueInput";
+import { RequirementFindManyArgs } from "../../requirement/base/RequirementFindManyArgs";
+import { Requirement } from "../../requirement/base/Requirement";
+import { RequirementWhereUniqueInput } from "../../requirement/base/RequirementWhereUniqueInput";
 @swagger.ApiBearerAuth()
 @common.UseGuards(defaultAuthGuard.DefaultAuthGuard, nestAccessControl.ACGuard)
 export class UserControllerBase {
@@ -320,17 +320,17 @@ export class UserControllerBase {
 
   @common.UseInterceptors(AclFilterResponseInterceptor)
   @nestAccessControl.UseRoles({
-    resource: "HmProtestAccount",
+    resource: "Account",
     action: "read",
     possession: "any",
   })
   @common.Get("/:id/hmProtestAccounts")
-  @ApiNestedQuery(HmProtestAccountFindManyArgs)
+  @ApiNestedQuery(AccountFindManyArgs)
   async findManyHmProtestAccounts(
     @common.Req() request: Request,
     @common.Param() params: UserWhereUniqueInput
-  ): Promise<HmProtestAccount[]> {
-    const query = plainToClass(HmProtestAccountFindManyArgs, request.query);
+  ): Promise<Account[]> {
+    const query = plainToClass(AccountFindManyArgs, request.query);
     const results = await this.service.findHmProtestAccounts(params.id, {
       ...query,
       select: {
@@ -364,7 +364,7 @@ export class UserControllerBase {
   @common.Post("/:id/hmProtestAccounts")
   async connectHmProtestAccounts(
     @common.Param() params: UserWhereUniqueInput,
-    @common.Body() body: HmProtestAccountWhereUniqueInput[]
+    @common.Body() body: AccountWhereUniqueInput[]
   ): Promise<void> {
     const data = {
       hmProtestAccounts: {
@@ -386,7 +386,7 @@ export class UserControllerBase {
   @common.Patch("/:id/hmProtestAccounts")
   async updateHmProtestAccounts(
     @common.Param() params: UserWhereUniqueInput,
-    @common.Body() body: HmProtestAccountWhereUniqueInput[]
+    @common.Body() body: AccountWhereUniqueInput[]
   ): Promise<void> {
     const data = {
       hmProtestAccounts: {
@@ -408,7 +408,7 @@ export class UserControllerBase {
   @common.Delete("/:id/hmProtestAccounts")
   async disconnectHmProtestAccounts(
     @common.Param() params: UserWhereUniqueInput,
-    @common.Body() body: HmProtestAccountWhereUniqueInput[]
+    @common.Body() body: AccountWhereUniqueInput[]
   ): Promise<void> {
     const data = {
       hmProtestAccounts: {
@@ -424,17 +424,17 @@ export class UserControllerBase {
 
   @common.UseInterceptors(AclFilterResponseInterceptor)
   @nestAccessControl.UseRoles({
-    resource: "HmProtestProject",
+    resource: "Project",
     action: "read",
     possession: "any",
   })
   @common.Get("/:id/hmProtestProjects")
-  @ApiNestedQuery(HmProtestProjectFindManyArgs)
+  @ApiNestedQuery(ProjectFindManyArgs)
   async findManyHmProtestProjects(
     @common.Req() request: Request,
     @common.Param() params: UserWhereUniqueInput
-  ): Promise<HmProtestProject[]> {
-    const query = plainToClass(HmProtestProjectFindManyArgs, request.query);
+  ): Promise<Project[]> {
+    const query = plainToClass(ProjectFindManyArgs, request.query);
     const results = await this.service.findHmProtestProjects(params.id, {
       ...query,
       select: {
@@ -464,7 +464,7 @@ export class UserControllerBase {
   @common.Post("/:id/hmProtestProjects")
   async connectHmProtestProjects(
     @common.Param() params: UserWhereUniqueInput,
-    @common.Body() body: HmProtestProjectWhereUniqueInput[]
+    @common.Body() body: ProjectWhereUniqueInput[]
   ): Promise<void> {
     const data = {
       hmProtestProjects: {
@@ -486,7 +486,7 @@ export class UserControllerBase {
   @common.Patch("/:id/hmProtestProjects")
   async updateHmProtestProjects(
     @common.Param() params: UserWhereUniqueInput,
-    @common.Body() body: HmProtestProjectWhereUniqueInput[]
+    @common.Body() body: ProjectWhereUniqueInput[]
   ): Promise<void> {
     const data = {
       hmProtestProjects: {
@@ -508,7 +508,7 @@ export class UserControllerBase {
   @common.Delete("/:id/hmProtestProjects")
   async disconnectHmProtestProjects(
     @common.Param() params: UserWhereUniqueInput,
-    @common.Body() body: HmProtestProjectWhereUniqueInput[]
+    @common.Body() body: ProjectWhereUniqueInput[]
   ): Promise<void> {
     const data = {
       hmProtestProjects: {
@@ -524,17 +524,17 @@ export class UserControllerBase {
 
   @common.UseInterceptors(AclFilterResponseInterceptor)
   @nestAccessControl.UseRoles({
-    resource: "HmProtestRequirement",
+    resource: "Requirement",
     action: "read",
     possession: "any",
   })
   @common.Get("/:id/hmProtestRequirements")
-  @ApiNestedQuery(HmProtestRequirementFindManyArgs)
+  @ApiNestedQuery(RequirementFindManyArgs)
   async findManyHmProtestRequirements(
     @common.Req() request: Request,
     @common.Param() params: UserWhereUniqueInput
-  ): Promise<HmProtestRequirement[]> {
-    const query = plainToClass(HmProtestRequirementFindManyArgs, request.query);
+  ): Promise<Requirement[]> {
+    const query = plainToClass(RequirementFindManyArgs, request.query);
     const results = await this.service.findHmProtestRequirements(params.id, {
       ...query,
       select: {
@@ -568,7 +568,7 @@ export class UserControllerBase {
   @common.Post("/:id/hmProtestRequirements")
   async connectHmProtestRequirements(
     @common.Param() params: UserWhereUniqueInput,
-    @common.Body() body: HmProtestRequirementWhereUniqueInput[]
+    @common.Body() body: RequirementWhereUniqueInput[]
   ): Promise<void> {
     const data = {
       hmProtestRequirements: {
@@ -590,7 +590,7 @@ export class UserControllerBase {
   @common.Patch("/:id/hmProtestRequirements")
   async updateHmProtestRequirements(
     @common.Param() params: UserWhereUniqueInput,
-    @common.Body() body: HmProtestRequirementWhereUniqueInput[]
+    @common.Body() body: RequirementWhereUniqueInput[]
   ): Promise<void> {
     const data = {
       hmProtestRequirements: {
@@ -612,7 +612,7 @@ export class UserControllerBase {
   @common.Delete("/:id/hmProtestRequirements")
   async disconnectHmProtestRequirements(
     @common.Param() params: UserWhereUniqueInput,
-    @common.Body() body: HmProtestRequirementWhereUniqueInput[]
+    @common.Body() body: RequirementWhereUniqueInput[]
   ): Promise<void> {
     const data = {
       hmProtestRequirements: {

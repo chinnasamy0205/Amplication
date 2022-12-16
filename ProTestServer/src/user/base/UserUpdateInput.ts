@@ -19,12 +19,12 @@ import {
   IsDate,
   IsEnum,
 } from "class-validator";
-import { HmProtestAccountUpdateManyWithoutUsersInput } from "./HmProtestAccountUpdateManyWithoutUsersInput";
+import { AccountUpdateManyWithoutUsersInput } from "./AccountUpdateManyWithoutUsersInput";
 import { Type } from "class-transformer";
-import { HmProtestAccountUserWhereUniqueInput } from "../../hmProtestAccountUser/base/HmProtestAccountUserWhereUniqueInput";
-import { HmProtestFeatureWhereUniqueInput } from "../../hmProtestFeature/base/HmProtestFeatureWhereUniqueInput";
-import { HmProtestProjectUpdateManyWithoutUsersInput } from "./HmProtestProjectUpdateManyWithoutUsersInput";
-import { HmProtestRequirementUpdateManyWithoutUsersInput } from "./HmProtestRequirementUpdateManyWithoutUsersInput";
+import { AccountUserWhereUniqueInput } from "../../accountUser/base/AccountUserWhereUniqueInput";
+import { FeatureWhereUniqueInput } from "../../feature/base/FeatureWhereUniqueInput";
+import { ProjectUpdateManyWithoutUsersInput } from "./ProjectUpdateManyWithoutUsersInput";
+import { RequirementUpdateManyWithoutUsersInput } from "./RequirementUpdateManyWithoutUsersInput";
 import { GraphQLJSON } from "graphql-type-json";
 import { InputJsonValue } from "../../types";
 import { EnumUserUserPlan } from "./EnumUserUserPlan";
@@ -44,63 +44,63 @@ class UserUpdateInput {
 
   @ApiProperty({
     required: false,
-    type: () => HmProtestAccountUpdateManyWithoutUsersInput,
+    type: () => AccountUpdateManyWithoutUsersInput,
   })
   @ValidateNested()
-  @Type(() => HmProtestAccountUpdateManyWithoutUsersInput)
+  @Type(() => AccountUpdateManyWithoutUsersInput)
   @IsOptional()
-  @Field(() => HmProtestAccountUpdateManyWithoutUsersInput, {
+  @Field(() => AccountUpdateManyWithoutUsersInput, {
     nullable: true,
   })
-  hmProtestAccounts?: HmProtestAccountUpdateManyWithoutUsersInput;
+  hmProtestAccounts?: AccountUpdateManyWithoutUsersInput;
 
   @ApiProperty({
     required: false,
-    type: () => HmProtestAccountUserWhereUniqueInput,
+    type: () => AccountUserWhereUniqueInput,
   })
   @ValidateNested()
-  @Type(() => HmProtestAccountUserWhereUniqueInput)
+  @Type(() => AccountUserWhereUniqueInput)
   @IsOptional()
-  @Field(() => HmProtestAccountUserWhereUniqueInput, {
+  @Field(() => AccountUserWhereUniqueInput, {
     nullable: true,
   })
-  hmProtestAccountUser?: HmProtestAccountUserWhereUniqueInput | null;
+  hmProtestAccountUser?: AccountUserWhereUniqueInput | null;
 
   @ApiProperty({
     required: false,
-    type: () => HmProtestFeatureWhereUniqueInput,
+    type: () => FeatureWhereUniqueInput,
   })
   @ValidateNested()
-  @Type(() => HmProtestFeatureWhereUniqueInput)
+  @Type(() => FeatureWhereUniqueInput)
   @IsOptional()
-  @Field(() => HmProtestFeatureWhereUniqueInput, {
+  @Field(() => FeatureWhereUniqueInput, {
     nullable: true,
   })
-  hmProtestFeature?: HmProtestFeatureWhereUniqueInput | null;
+  hmProtestFeature?: FeatureWhereUniqueInput | null;
 
   @ApiProperty({
     required: false,
-    type: () => HmProtestProjectUpdateManyWithoutUsersInput,
+    type: () => ProjectUpdateManyWithoutUsersInput,
   })
   @ValidateNested()
-  @Type(() => HmProtestProjectUpdateManyWithoutUsersInput)
+  @Type(() => ProjectUpdateManyWithoutUsersInput)
   @IsOptional()
-  @Field(() => HmProtestProjectUpdateManyWithoutUsersInput, {
+  @Field(() => ProjectUpdateManyWithoutUsersInput, {
     nullable: true,
   })
-  hmProtestProjects?: HmProtestProjectUpdateManyWithoutUsersInput;
+  hmProtestProjects?: ProjectUpdateManyWithoutUsersInput;
 
   @ApiProperty({
     required: false,
-    type: () => HmProtestRequirementUpdateManyWithoutUsersInput,
+    type: () => RequirementUpdateManyWithoutUsersInput,
   })
   @ValidateNested()
-  @Type(() => HmProtestRequirementUpdateManyWithoutUsersInput)
+  @Type(() => RequirementUpdateManyWithoutUsersInput)
   @IsOptional()
-  @Field(() => HmProtestRequirementUpdateManyWithoutUsersInput, {
+  @Field(() => RequirementUpdateManyWithoutUsersInput, {
     nullable: true,
   })
-  hmProtestRequirements?: HmProtestRequirementUpdateManyWithoutUsersInput;
+  hmProtestRequirements?: RequirementUpdateManyWithoutUsersInput;
 
   @ApiProperty({
     required: false,

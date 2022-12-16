@@ -20,11 +20,11 @@ import {
   IsEnum,
 } from "class-validator";
 import { Type } from "class-transformer";
-import { HmProtestAccount } from "../../hmProtestAccount/base/HmProtestAccount";
-import { HmProtestAccountUser } from "../../hmProtestAccountUser/base/HmProtestAccountUser";
-import { HmProtestFeature } from "../../hmProtestFeature/base/HmProtestFeature";
-import { HmProtestProject } from "../../hmProtestProject/base/HmProtestProject";
-import { HmProtestRequirement } from "../../hmProtestRequirement/base/HmProtestRequirement";
+import { Account } from "../../account/base/Account";
+import { AccountUser } from "../../accountUser/base/AccountUser";
+import { Feature } from "../../feature/base/Feature";
+import { Project } from "../../project/base/Project";
+import { Requirement } from "../../requirement/base/Requirement";
 import { GraphQLJSON } from "graphql-type-json";
 import { JsonValue } from "type-fest";
 import { EnumUserUserPlan } from "./EnumUserUserPlan";
@@ -52,48 +52,48 @@ class User {
 
   @ApiProperty({
     required: false,
-    type: () => [HmProtestAccount],
+    type: () => [Account],
   })
   @ValidateNested()
-  @Type(() => HmProtestAccount)
+  @Type(() => Account)
   @IsOptional()
-  hmProtestAccounts?: Array<HmProtestAccount>;
+  hmProtestAccounts?: Array<Account>;
 
   @ApiProperty({
     required: false,
-    type: () => HmProtestAccountUser,
+    type: () => AccountUser,
   })
   @ValidateNested()
-  @Type(() => HmProtestAccountUser)
+  @Type(() => AccountUser)
   @IsOptional()
-  hmProtestAccountUser?: HmProtestAccountUser | null;
+  hmProtestAccountUser?: AccountUser | null;
 
   @ApiProperty({
     required: false,
-    type: () => HmProtestFeature,
+    type: () => Feature,
   })
   @ValidateNested()
-  @Type(() => HmProtestFeature)
+  @Type(() => Feature)
   @IsOptional()
-  hmProtestFeature?: HmProtestFeature | null;
+  hmProtestFeature?: Feature | null;
 
   @ApiProperty({
     required: false,
-    type: () => [HmProtestProject],
+    type: () => [Project],
   })
   @ValidateNested()
-  @Type(() => HmProtestProject)
+  @Type(() => Project)
   @IsOptional()
-  hmProtestProjects?: Array<HmProtestProject>;
+  hmProtestProjects?: Array<Project>;
 
   @ApiProperty({
     required: false,
-    type: () => [HmProtestRequirement],
+    type: () => [Requirement],
   })
   @ValidateNested()
-  @Type(() => HmProtestRequirement)
+  @Type(() => Requirement)
   @IsOptional()
-  hmProtestRequirements?: Array<HmProtestRequirement>;
+  hmProtestRequirements?: Array<Requirement>;
 
   @ApiProperty({
     required: true,

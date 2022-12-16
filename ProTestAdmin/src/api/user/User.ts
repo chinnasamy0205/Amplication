@@ -1,18 +1,18 @@
-import { HmProtestAccount } from "../hmProtestAccount/HmProtestAccount";
-import { HmProtestAccountUser } from "../hmProtestAccountUser/HmProtestAccountUser";
-import { HmProtestFeature } from "../hmProtestFeature/HmProtestFeature";
-import { HmProtestProject } from "../hmProtestProject/HmProtestProject";
-import { HmProtestRequirement } from "../hmProtestRequirement/HmProtestRequirement";
+import { Account } from "../account/Account";
+import { AccountUser } from "../accountUser/AccountUser";
+import { Feature } from "../feature/Feature";
+import { Project } from "../project/Project";
+import { Requirement } from "../requirement/Requirement";
 import { JsonValue } from "type-fest";
 
 export type User = {
   createdAt: Date;
   firstName: string | null;
-  hmProtestAccounts?: Array<HmProtestAccount>;
-  hmProtestAccountUser?: HmProtestAccountUser | null;
-  hmProtestFeature?: HmProtestFeature | null;
-  hmProtestProjects?: Array<HmProtestProject>;
-  hmProtestRequirements?: Array<HmProtestRequirement>;
+  hmProtestAccounts?: Array<Account>;
+  hmProtestAccountUser?: AccountUser | null;
+  hmProtestFeature?: Feature | null;
+  hmProtestProjects?: Array<Project>;
+  hmProtestRequirements?: Array<Requirement>;
   id: string;
   lastName: string | null;
   roles: JsonValue;

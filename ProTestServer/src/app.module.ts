@@ -7,11 +7,11 @@ import { CustomerModule } from "./customer/customer.module";
 import { AddressModule } from "./address/address.module";
 import { ProductModule } from "./product/product.module";
 import { AnswerModule } from "./answer/answer.module";
-import { HmProtestAccountModule } from "./hmProtestAccount/hmProtestAccount.module";
-import { HmProtestProjectModule } from "./hmProtestProject/hmProtestProject.module";
-import { HmProtestFeatureModule } from "./hmProtestFeature/hmProtestFeature.module";
-import { HmProtestRequirementModule } from "./hmProtestRequirement/hmProtestRequirement.module";
-import { HmProtestAccountUserModule } from "./hmProtestAccountUser/hmProtestAccountUser.module";
+import { AccountModule } from "./account/account.module";
+import { ProjectModule } from "./project/project.module";
+import { FeatureModule } from "./feature/feature.module";
+import { RequirementModule } from "./requirement/requirement.module";
+import { AccountUserModule } from "./accountUser/accountUser.module";
 import { ACLModule } from "./auth/acl.module";
 import { AuthModule } from "./auth/auth.module";
 import { HealthModule } from "./health/health.module";
@@ -30,11 +30,11 @@ import { GraphQLModule } from "@nestjs/graphql";
     AddressModule,
     ProductModule,
     AnswerModule,
-    HmProtestAccountModule,
-    HmProtestProjectModule,
-    HmProtestFeatureModule,
-    HmProtestRequirementModule,
-    HmProtestAccountUserModule,
+    AccountModule,
+    ProjectModule,
+    FeatureModule,
+    RequirementModule,
+    AccountUserModule,
     ACLModule,
     AuthModule,
     HealthModule,

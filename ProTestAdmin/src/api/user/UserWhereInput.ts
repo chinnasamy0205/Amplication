@@ -1,19 +1,19 @@
 import { StringNullableFilter } from "../../util/StringNullableFilter";
-import { HmProtestAccountListRelationFilter } from "../hmProtestAccount/HmProtestAccountListRelationFilter";
-import { HmProtestAccountUserWhereUniqueInput } from "../hmProtestAccountUser/HmProtestAccountUserWhereUniqueInput";
-import { HmProtestFeatureWhereUniqueInput } from "../hmProtestFeature/HmProtestFeatureWhereUniqueInput";
-import { HmProtestProjectListRelationFilter } from "../hmProtestProject/HmProtestProjectListRelationFilter";
-import { HmProtestRequirementListRelationFilter } from "../hmProtestRequirement/HmProtestRequirementListRelationFilter";
+import { AccountListRelationFilter } from "../account/AccountListRelationFilter";
+import { AccountUserWhereUniqueInput } from "../accountUser/AccountUserWhereUniqueInput";
+import { FeatureWhereUniqueInput } from "../feature/FeatureWhereUniqueInput";
+import { ProjectListRelationFilter } from "../project/ProjectListRelationFilter";
+import { RequirementListRelationFilter } from "../requirement/RequirementListRelationFilter";
 import { StringFilter } from "../../util/StringFilter";
 import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
 
 export type UserWhereInput = {
   firstName?: StringNullableFilter;
-  hmProtestAccounts?: HmProtestAccountListRelationFilter;
-  hmProtestAccountUser?: HmProtestAccountUserWhereUniqueInput;
-  hmProtestFeature?: HmProtestFeatureWhereUniqueInput;
-  hmProtestProjects?: HmProtestProjectListRelationFilter;
-  hmProtestRequirements?: HmProtestRequirementListRelationFilter;
+  hmProtestAccounts?: AccountListRelationFilter;
+  hmProtestAccountUser?: AccountUserWhereUniqueInput;
+  hmProtestFeature?: FeatureWhereUniqueInput;
+  hmProtestProjects?: ProjectListRelationFilter;
+  hmProtestRequirements?: RequirementListRelationFilter;
   id?: StringFilter;
   lastName?: StringNullableFilter;
   userDesc?: StringNullableFilter;
