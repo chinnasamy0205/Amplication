@@ -13,11 +13,11 @@ import {
   DateTimeInput,
 } from "react-admin";
 
-import { HmProtestAccountTitle } from "../hmProtestAccount/HmProtestAccountTitle";
-import { HmProtestAccountUserTitle } from "../hmProtestAccountUser/HmProtestAccountUserTitle";
-import { HmProtestFeatureTitle } from "../hmProtestFeature/HmProtestFeatureTitle";
-import { HmProtestProjectTitle } from "../hmProtestProject/HmProtestProjectTitle";
-import { HmProtestRequirementTitle } from "../hmProtestRequirement/HmProtestRequirementTitle";
+import { AccountTitle } from "../account/AccountTitle";
+import { AccountUserTitle } from "../accountUser/AccountUserTitle";
+import { FeatureTitle } from "../feature/FeatureTitle";
+import { ProjectTitle } from "../project/ProjectTitle";
+import { RequirementTitle } from "../requirement/RequirementTitle";
 import { ROLES_OPTIONS } from "../user/RolesOptions";
 
 export const UserCreate = (props: CreateProps): React.ReactElement => {
@@ -27,41 +27,41 @@ export const UserCreate = (props: CreateProps): React.ReactElement => {
         <TextInput label="First Name" source="firstName" />
         <ReferenceArrayInput
           source="hmProtestAccounts"
-          reference="HmProtestAccount"
+          reference="Account"
           parse={(value: any) => value && value.map((v: any) => ({ id: v }))}
           format={(value: any) => value && value.map((v: any) => v.id)}
         >
-          <SelectArrayInput optionText={HmProtestAccountTitle} />
+          <SelectArrayInput optionText={AccountTitle} />
         </ReferenceArrayInput>
         <ReferenceInput
-          source="hmprotestaccountuser.id"
-          reference="HmProtestAccountUser"
+          source="accountuser.id"
+          reference="AccountUser"
           label="hm_protest_account_user"
         >
-          <SelectInput optionText={HmProtestAccountUserTitle} />
+          <SelectInput optionText={AccountUserTitle} />
         </ReferenceInput>
         <ReferenceInput
-          source="hmprotestfeature.id"
-          reference="HmProtestFeature"
+          source="feature.id"
+          reference="Feature"
           label="hm_protest_feature"
         >
-          <SelectInput optionText={HmProtestFeatureTitle} />
+          <SelectInput optionText={FeatureTitle} />
         </ReferenceInput>
         <ReferenceArrayInput
           source="hmProtestProjects"
-          reference="HmProtestProject"
+          reference="Project"
           parse={(value: any) => value && value.map((v: any) => ({ id: v }))}
           format={(value: any) => value && value.map((v: any) => v.id)}
         >
-          <SelectArrayInput optionText={HmProtestProjectTitle} />
+          <SelectArrayInput optionText={ProjectTitle} />
         </ReferenceArrayInput>
         <ReferenceArrayInput
           source="hmProtestRequirements"
-          reference="HmProtestRequirement"
+          reference="Requirement"
           parse={(value: any) => value && value.map((v: any) => ({ id: v }))}
           format={(value: any) => value && value.map((v: any) => v.id)}
         >
-          <SelectArrayInput optionText={HmProtestRequirementTitle} />
+          <SelectArrayInput optionText={RequirementTitle} />
         </ReferenceArrayInput>
         <TextInput label="Last Name" source="lastName" />
         <PasswordInput label="Password" source="password" />

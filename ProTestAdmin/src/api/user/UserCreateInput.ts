@@ -1,17 +1,17 @@
-import { HmProtestAccountCreateNestedManyWithoutUsersInput } from "./HmProtestAccountCreateNestedManyWithoutUsersInput";
-import { HmProtestAccountUserWhereUniqueInput } from "../hmProtestAccountUser/HmProtestAccountUserWhereUniqueInput";
-import { HmProtestFeatureWhereUniqueInput } from "../hmProtestFeature/HmProtestFeatureWhereUniqueInput";
-import { HmProtestProjectCreateNestedManyWithoutUsersInput } from "./HmProtestProjectCreateNestedManyWithoutUsersInput";
-import { HmProtestRequirementCreateNestedManyWithoutUsersInput } from "./HmProtestRequirementCreateNestedManyWithoutUsersInput";
+import { AccountCreateNestedManyWithoutUsersInput } from "./AccountCreateNestedManyWithoutUsersInput";
+import { AccountUserWhereUniqueInput } from "../accountUser/AccountUserWhereUniqueInput";
+import { FeatureWhereUniqueInput } from "../feature/FeatureWhereUniqueInput";
+import { ProjectCreateNestedManyWithoutUsersInput } from "./ProjectCreateNestedManyWithoutUsersInput";
+import { RequirementCreateNestedManyWithoutUsersInput } from "./RequirementCreateNestedManyWithoutUsersInput";
 import { InputJsonValue } from "../../types";
 
 export type UserCreateInput = {
   firstName?: string | null;
-  hmProtestAccounts?: HmProtestAccountCreateNestedManyWithoutUsersInput;
-  hmProtestAccountUser?: HmProtestAccountUserWhereUniqueInput | null;
-  hmProtestFeature?: HmProtestFeatureWhereUniqueInput | null;
-  hmProtestProjects?: HmProtestProjectCreateNestedManyWithoutUsersInput;
-  hmProtestRequirements?: HmProtestRequirementCreateNestedManyWithoutUsersInput;
+  hmProtestAccounts?: AccountCreateNestedManyWithoutUsersInput;
+  hmProtestAccountUser?: AccountUserWhereUniqueInput | null;
+  hmProtestFeature?: FeatureWhereUniqueInput | null;
+  hmProtestProjects?: ProjectCreateNestedManyWithoutUsersInput;
+  hmProtestRequirements?: RequirementCreateNestedManyWithoutUsersInput;
   lastName?: string | null;
   password: string;
   roles: InputJsonValue;

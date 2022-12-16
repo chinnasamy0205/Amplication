@@ -19,12 +19,12 @@ import {
   IsDate,
   IsEnum,
 } from "class-validator";
-import { HmProtestAccountCreateNestedManyWithoutUsersInput } from "./HmProtestAccountCreateNestedManyWithoutUsersInput";
+import { AccountCreateNestedManyWithoutUsersInput } from "./AccountCreateNestedManyWithoutUsersInput";
 import { Type } from "class-transformer";
-import { HmProtestAccountUserWhereUniqueInput } from "../../hmProtestAccountUser/base/HmProtestAccountUserWhereUniqueInput";
-import { HmProtestFeatureWhereUniqueInput } from "../../hmProtestFeature/base/HmProtestFeatureWhereUniqueInput";
-import { HmProtestProjectCreateNestedManyWithoutUsersInput } from "./HmProtestProjectCreateNestedManyWithoutUsersInput";
-import { HmProtestRequirementCreateNestedManyWithoutUsersInput } from "./HmProtestRequirementCreateNestedManyWithoutUsersInput";
+import { AccountUserWhereUniqueInput } from "../../accountUser/base/AccountUserWhereUniqueInput";
+import { FeatureWhereUniqueInput } from "../../feature/base/FeatureWhereUniqueInput";
+import { ProjectCreateNestedManyWithoutUsersInput } from "./ProjectCreateNestedManyWithoutUsersInput";
+import { RequirementCreateNestedManyWithoutUsersInput } from "./RequirementCreateNestedManyWithoutUsersInput";
 import { GraphQLJSON } from "graphql-type-json";
 import { InputJsonValue } from "../../types";
 import { EnumUserUserPlan } from "./EnumUserUserPlan";
@@ -44,63 +44,63 @@ class UserCreateInput {
 
   @ApiProperty({
     required: false,
-    type: () => HmProtestAccountCreateNestedManyWithoutUsersInput,
+    type: () => AccountCreateNestedManyWithoutUsersInput,
   })
   @ValidateNested()
-  @Type(() => HmProtestAccountCreateNestedManyWithoutUsersInput)
+  @Type(() => AccountCreateNestedManyWithoutUsersInput)
   @IsOptional()
-  @Field(() => HmProtestAccountCreateNestedManyWithoutUsersInput, {
+  @Field(() => AccountCreateNestedManyWithoutUsersInput, {
     nullable: true,
   })
-  hmProtestAccounts?: HmProtestAccountCreateNestedManyWithoutUsersInput;
+  hmProtestAccounts?: AccountCreateNestedManyWithoutUsersInput;
 
   @ApiProperty({
     required: false,
-    type: () => HmProtestAccountUserWhereUniqueInput,
+    type: () => AccountUserWhereUniqueInput,
   })
   @ValidateNested()
-  @Type(() => HmProtestAccountUserWhereUniqueInput)
+  @Type(() => AccountUserWhereUniqueInput)
   @IsOptional()
-  @Field(() => HmProtestAccountUserWhereUniqueInput, {
+  @Field(() => AccountUserWhereUniqueInput, {
     nullable: true,
   })
-  hmProtestAccountUser?: HmProtestAccountUserWhereUniqueInput | null;
+  hmProtestAccountUser?: AccountUserWhereUniqueInput | null;
 
   @ApiProperty({
     required: false,
-    type: () => HmProtestFeatureWhereUniqueInput,
+    type: () => FeatureWhereUniqueInput,
   })
   @ValidateNested()
-  @Type(() => HmProtestFeatureWhereUniqueInput)
+  @Type(() => FeatureWhereUniqueInput)
   @IsOptional()
-  @Field(() => HmProtestFeatureWhereUniqueInput, {
+  @Field(() => FeatureWhereUniqueInput, {
     nullable: true,
   })
-  hmProtestFeature?: HmProtestFeatureWhereUniqueInput | null;
+  hmProtestFeature?: FeatureWhereUniqueInput | null;
 
   @ApiProperty({
     required: false,
-    type: () => HmProtestProjectCreateNestedManyWithoutUsersInput,
+    type: () => ProjectCreateNestedManyWithoutUsersInput,
   })
   @ValidateNested()
-  @Type(() => HmProtestProjectCreateNestedManyWithoutUsersInput)
+  @Type(() => ProjectCreateNestedManyWithoutUsersInput)
   @IsOptional()
-  @Field(() => HmProtestProjectCreateNestedManyWithoutUsersInput, {
+  @Field(() => ProjectCreateNestedManyWithoutUsersInput, {
     nullable: true,
   })
-  hmProtestProjects?: HmProtestProjectCreateNestedManyWithoutUsersInput;
+  hmProtestProjects?: ProjectCreateNestedManyWithoutUsersInput;
 
   @ApiProperty({
     required: false,
-    type: () => HmProtestRequirementCreateNestedManyWithoutUsersInput,
+    type: () => RequirementCreateNestedManyWithoutUsersInput,
   })
   @ValidateNested()
-  @Type(() => HmProtestRequirementCreateNestedManyWithoutUsersInput)
+  @Type(() => RequirementCreateNestedManyWithoutUsersInput)
   @IsOptional()
-  @Field(() => HmProtestRequirementCreateNestedManyWithoutUsersInput, {
+  @Field(() => RequirementCreateNestedManyWithoutUsersInput, {
     nullable: true,
   })
-  hmProtestRequirements?: HmProtestRequirementCreateNestedManyWithoutUsersInput;
+  hmProtestRequirements?: RequirementCreateNestedManyWithoutUsersInput;
 
   @ApiProperty({
     required: false,
