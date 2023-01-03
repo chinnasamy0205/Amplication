@@ -14,6 +14,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import { Account } from "../../account/base/Account";
 import { ValidateNested, IsOptional, IsDate, IsString } from "class-validator";
 import { Type } from "class-transformer";
+import { Feature } from "../../feature/base/Feature";
 import { User } from "../../user/base/User";
 @ObjectType()
 class Project {
@@ -33,6 +34,15 @@ class Project {
   @Type(() => Date)
   @Field(() => Date)
   createdAt!: Date;
+
+  @ApiProperty({
+    required: false,
+    type: () => [Feature],
+  })
+  @ValidateNested()
+  @Type(() => Feature)
+  @IsOptional()
+  features?: Array<Feature>;
 
   @ApiProperty({
     required: true,

@@ -7,7 +7,6 @@ export type FeatureOrderByInput = {
   featureId?: SortOrder;
   featureName?: SortOrder;
   featurePrereq?: SortOrder;
-  featureProjId?: SortOrder;
   featureStDate?: SortOrder;
   id?: SortOrder;
   updatedAt?: SortOrder;

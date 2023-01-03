@@ -14,6 +14,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import { AccountListRelationFilter } from "../../account/base/AccountListRelationFilter";
 import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
+import { FeatureListRelationFilter } from "../../feature/base/FeatureListRelationFilter";
 import { StringFilter } from "../../util/StringFilter";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
@@ -31,6 +32,18 @@ class ProjectWhereInput {
     nullable: true,
   })
   accountId?: AccountListRelationFilter;
+
+  @ApiProperty({
+    required: false,
+    type: () => FeatureListRelationFilter,
+  })
+  @ValidateNested()
+  @Type(() => FeatureListRelationFilter)
+  @IsOptional()
+  @Field(() => FeatureListRelationFilter, {
+    nullable: true,
+  })
+  features?: FeatureListRelationFilter;
 
   @ApiProperty({
     required: false,

@@ -25,6 +25,8 @@ import { DeleteFeatureArgs } from "./DeleteFeatureArgs";
 import { FeatureFindManyArgs } from "./FeatureFindManyArgs";
 import { FeatureFindUniqueArgs } from "./FeatureFindUniqueArgs";
 import { Feature } from "./Feature";
+import { ProjectFindManyArgs } from "../../project/base/ProjectFindManyArgs";
+import { Project } from "../../project/base/Project";
 import { RequirementFindManyArgs } from "../../requirement/base/RequirementFindManyArgs";
 import { Requirement } from "../../requirement/base/Requirement";
 import { UserFindManyArgs } from "../../user/base/UserFindManyArgs";
@@ -148,6 +150,26 @@ export class FeatureResolverBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => [Project])
+  @nestAccessControl.UseRoles({
+    resource: "Project",
+    action: "read",
+    possession: "any",
+  })
+  async featureProjId(
+    @graphql.Parent() parent: Feature,
+    @graphql.Args() args: ProjectFindManyArgs
+  ): Promise<Project[]> {
+    const results = await this.service.findFeatureProjId(parent.id, args);
+
+    if (!results) {
+      return [];
+    }
+
+    return results;
   }
 
   @common.UseInterceptors(AclFilterResponseInterceptor)

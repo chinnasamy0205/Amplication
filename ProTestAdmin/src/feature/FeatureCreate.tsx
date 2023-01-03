@@ -10,6 +10,7 @@ import {
   SelectArrayInput,
 } from "react-admin";
 
+import { ProjectTitle } from "../project/ProjectTitle";
 import { RequirementTitle } from "../requirement/RequirementTitle";
 import { UserTitle } from "../user/UserTitle";
 
@@ -22,7 +23,14 @@ export const FeatureCreate = (props: CreateProps): React.ReactElement => {
         <TextInput label="feature_id" source="featureId" />
         <TextInput label="feature_name" source="featureName" />
         <TextInput label="feature_prereq" source="featurePrereq" />
-        <TextInput label="feature_projId" source="featureProjId" />
+        <ReferenceArrayInput
+          source="featureProjId"
+          reference="Project"
+          parse={(value: any) => value && value.map((v: any) => ({ id: v }))}
+          format={(value: any) => value && value.map((v: any) => v.id)}
+        >
+          <SelectArrayInput optionText={ProjectTitle} />
+        </ReferenceArrayInput>
         <DateTimeInput label="feature_st_date" source="featureStDate" />
         <ReferenceArrayInput
           source="hmProtestRequirements"

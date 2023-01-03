@@ -27,6 +27,8 @@ import { ProjectFindUniqueArgs } from "./ProjectFindUniqueArgs";
 import { Project } from "./Project";
 import { AccountFindManyArgs } from "../../account/base/AccountFindManyArgs";
 import { Account } from "../../account/base/Account";
+import { FeatureFindManyArgs } from "../../feature/base/FeatureFindManyArgs";
+import { Feature } from "../../feature/base/Feature";
 import { UserFindManyArgs } from "../../user/base/UserFindManyArgs";
 import { User } from "../../user/base/User";
 import { ProjectService } from "../project.service";
@@ -162,6 +164,26 @@ export class ProjectResolverBase {
     @graphql.Args() args: AccountFindManyArgs
   ): Promise<Account[]> {
     const results = await this.service.findAccountId(parent.id, args);
+
+    if (!results) {
+      return [];
+    }
+
+    return results;
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => [Feature])
+  @nestAccessControl.UseRoles({
+    resource: "Feature",
+    action: "read",
+    possession: "any",
+  })
+  async features(
+    @graphql.Parent() parent: Project,
+    @graphql.Args() args: FeatureFindManyArgs
+  ): Promise<Feature[]> {
+    const results = await this.service.findFeatures(parent.id, args);
 
     if (!results) {
       return [];

@@ -79,15 +79,6 @@ class FeatureOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  featureProjId?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
   featureStDate?: SortOrder;
 
   @ApiProperty({

@@ -246,7 +246,6 @@ export class RequirementControllerBase {
         featureId: true,
         featureName: true,
         featurePrereq: true,
-        featureProjId: true,
         featureStDate: true,
         id: true,
         updatedAt: true,

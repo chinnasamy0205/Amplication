@@ -24,7 +24,6 @@ export const FeatureShow = (props: ShowProps): React.ReactElement => {
         <TextField label="feature_id" source="featureId" />
         <TextField label="feature_name" source="featureName" />
         <TextField label="feature_prereq" source="featurePrereq" />
-        <TextField label="feature_projId" source="featureProjId" />
         <TextField label="feature_st_date" source="featureStDate" />
         <TextField label="ID" source="id" />
         <DateField source="updatedAt" label="Updated At" />
