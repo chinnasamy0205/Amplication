@@ -11,6 +11,7 @@ import {
 } from "react-admin";
 
 import { AccountTitle } from "../account/AccountTitle";
+import { FeatureTitle } from "../feature/FeatureTitle";
 import { UserTitle } from "../user/UserTitle";
 
 export const ProjectCreate = (props: CreateProps): React.ReactElement => {
@@ -24,6 +25,14 @@ export const ProjectCreate = (props: CreateProps): React.ReactElement => {
           format={(value: any) => value && value.map((v: any) => v.id)}
         >
           <SelectArrayInput optionText={AccountTitle} />
+        </ReferenceArrayInput>
+        <ReferenceArrayInput
+          source="features"
+          reference="Feature"
+          parse={(value: any) => value && value.map((v: any) => ({ id: v }))}
+          format={(value: any) => value && value.map((v: any) => v.id)}
+        >
+          <SelectArrayInput optionText={FeatureTitle} />
         </ReferenceArrayInput>
         <TextInput label="project_desc" source="projectDesc" />
         <DateTimeInput label="project_end_date" source="projectEndDate" />

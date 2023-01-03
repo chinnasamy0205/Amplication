@@ -14,6 +14,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import { AccountCreateNestedManyWithoutProjectsInput } from "./AccountCreateNestedManyWithoutProjectsInput";
 import { ValidateNested, IsOptional, IsString, IsDate } from "class-validator";
 import { Type } from "class-transformer";
+import { FeatureCreateNestedManyWithoutProjectsInput } from "./FeatureCreateNestedManyWithoutProjectsInput";
 import { UserCreateNestedManyWithoutProjectsInput } from "./UserCreateNestedManyWithoutProjectsInput";
 @InputType()
 class ProjectCreateInput {
@@ -28,6 +29,18 @@ class ProjectCreateInput {
     nullable: true,
   })
   accountId?: AccountCreateNestedManyWithoutProjectsInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => FeatureCreateNestedManyWithoutProjectsInput,
+  })
+  @ValidateNested()
+  @Type(() => FeatureCreateNestedManyWithoutProjectsInput)
+  @IsOptional()
+  @Field(() => FeatureCreateNestedManyWithoutProjectsInput, {
+    nullable: true,
+  })
+  features?: FeatureCreateNestedManyWithoutProjectsInput;
 
   @ApiProperty({
     required: false,

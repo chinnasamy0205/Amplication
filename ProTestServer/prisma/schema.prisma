@@ -51,6 +51,7 @@ model Account {
 model Project {
   accountId      Account[]
   createdAt      DateTime  @default(now())
+  features       Feature[]
   id             String    @id @default(cuid())
   projectDesc    String?
   projectEndDate DateTime?
@@ -68,7 +69,7 @@ model Feature {
   featureId             String
   featureName           String
   featurePrereq         String?
-  featureProjId         String?
+  featureProjId         Project[]
   featureStDate         DateTime
   hmProtestRequirements Requirement[]
   id                    String        @id @default(cuid())

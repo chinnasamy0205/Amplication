@@ -1,3 +1,4 @@
+import { ProjectUpdateManyWithoutFeaturesInput } from "./ProjectUpdateManyWithoutFeaturesInput";
 import { RequirementUpdateManyWithoutFeaturesInput } from "./RequirementUpdateManyWithoutFeaturesInput";
 import { UserUpdateManyWithoutFeaturesInput } from "./UserUpdateManyWithoutFeaturesInput";
 
@@ -7,7 +8,7 @@ export type FeatureUpdateInput = {
   featureId?: string;
   featureName?: string;
   featurePrereq?: string | null;
-  featureProjId?: string | null;
+  featureProjId?: ProjectUpdateManyWithoutFeaturesInput;
   featureStDate?: Date;
   hmProtestRequirements?: RequirementUpdateManyWithoutFeaturesInput;
   userId?: UserUpdateManyWithoutFeaturesInput;

@@ -27,6 +27,9 @@ import { FeatureWhereUniqueInput } from "./FeatureWhereUniqueInput";
 import { FeatureFindManyArgs } from "./FeatureFindManyArgs";
 import { FeatureUpdateInput } from "./FeatureUpdateInput";
 import { Feature } from "./Feature";
+import { ProjectFindManyArgs } from "../../project/base/ProjectFindManyArgs";
+import { Project } from "../../project/base/Project";
+import { ProjectWhereUniqueInput } from "../../project/base/ProjectWhereUniqueInput";
 import { RequirementFindManyArgs } from "../../requirement/base/RequirementFindManyArgs";
 import { Requirement } from "../../requirement/base/Requirement";
 import { RequirementWhereUniqueInput } from "../../requirement/base/RequirementWhereUniqueInput";
@@ -60,7 +63,6 @@ export class FeatureControllerBase {
         featureId: true,
         featureName: true,
         featurePrereq: true,
-        featureProjId: true,
         featureStDate: true,
         id: true,
         updatedAt: true,
@@ -89,7 +91,6 @@ export class FeatureControllerBase {
         featureId: true,
         featureName: true,
         featurePrereq: true,
-        featureProjId: true,
         featureStDate: true,
         id: true,
         updatedAt: true,
@@ -119,7 +120,6 @@ export class FeatureControllerBase {
         featureId: true,
         featureName: true,
         featurePrereq: true,
-        featureProjId: true,
         featureStDate: true,
         id: true,
         updatedAt: true,
@@ -158,7 +158,6 @@ export class FeatureControllerBase {
           featureId: true,
           featureName: true,
           featurePrereq: true,
-          featureProjId: true,
           featureStDate: true,
           id: true,
           updatedAt: true,
@@ -196,7 +195,6 @@ export class FeatureControllerBase {
           featureId: true,
           featureName: true,
           featurePrereq: true,
-          featureProjId: true,
           featureStDate: true,
           id: true,
           updatedAt: true,
@@ -210,6 +208,106 @@ export class FeatureControllerBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @nestAccessControl.UseRoles({
+    resource: "Project",
+    action: "read",
+    possession: "any",
+  })
+  @common.Get("/:id/featureProjId")
+  @ApiNestedQuery(ProjectFindManyArgs)
+  async findManyFeatureProjId(
+    @common.Req() request: Request,
+    @common.Param() params: FeatureWhereUniqueInput
+  ): Promise<Project[]> {
+    const query = plainToClass(ProjectFindManyArgs, request.query);
+    const results = await this.service.findFeatureProjId(params.id, {
+      ...query,
+      select: {
+        createdAt: true,
+        id: true,
+        projectDesc: true,
+        projectEndDate: true,
+        projectId: true,
+        projectName: true,
+        projectStDate: true,
+        updatedAt: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @nestAccessControl.UseRoles({
+    resource: "Feature",
+    action: "update",
+    possession: "any",
+  })
+  @common.Post("/:id/featureProjId")
+  async connectFeatureProjId(
+    @common.Param() params: FeatureWhereUniqueInput,
+    @common.Body() body: ProjectWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      featureProjId: {
+        connect: body,
+      },
+    };
+    await this.service.update({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @nestAccessControl.UseRoles({
+    resource: "Feature",
+    action: "update",
+    possession: "any",
+  })
+  @common.Patch("/:id/featureProjId")
+  async updateFeatureProjId(
+    @common.Param() params: FeatureWhereUniqueInput,
+    @common.Body() body: ProjectWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      featureProjId: {
+        set: body,
+      },
+    };
+    await this.service.update({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @nestAccessControl.UseRoles({
+    resource: "Feature",
+    action: "update",
+    possession: "any",
+  })
+  @common.Delete("/:id/featureProjId")
+  async disconnectFeatureProjId(
+    @common.Param() params: FeatureWhereUniqueInput,
+    @common.Body() body: ProjectWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      featureProjId: {
+        disconnect: body,
+      },
+    };
+    await this.service.update({
+      where: params,
+      data,
+      select: { id: true },
+    });
   }
 
   @common.UseInterceptors(AclFilterResponseInterceptor)

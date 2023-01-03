@@ -30,6 +30,9 @@ import { Project } from "./Project";
 import { AccountFindManyArgs } from "../../account/base/AccountFindManyArgs";
 import { Account } from "../../account/base/Account";
 import { AccountWhereUniqueInput } from "../../account/base/AccountWhereUniqueInput";
+import { FeatureFindManyArgs } from "../../feature/base/FeatureFindManyArgs";
+import { Feature } from "../../feature/base/Feature";
+import { FeatureWhereUniqueInput } from "../../feature/base/FeatureWhereUniqueInput";
 import { UserFindManyArgs } from "../../user/base/UserFindManyArgs";
 import { User } from "../../user/base/User";
 import { UserWhereUniqueInput } from "../../user/base/UserWhereUniqueInput";
@@ -296,6 +299,107 @@ export class ProjectControllerBase {
   ): Promise<void> {
     const data = {
       accountId: {
+        disconnect: body,
+      },
+    };
+    await this.service.update({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @nestAccessControl.UseRoles({
+    resource: "Feature",
+    action: "read",
+    possession: "any",
+  })
+  @common.Get("/:id/features")
+  @ApiNestedQuery(FeatureFindManyArgs)
+  async findManyFeatures(
+    @common.Req() request: Request,
+    @common.Param() params: ProjectWhereUniqueInput
+  ): Promise<Feature[]> {
+    const query = plainToClass(FeatureFindManyArgs, request.query);
+    const results = await this.service.findFeatures(params.id, {
+      ...query,
+      select: {
+        createdAt: true,
+        featureDesc: true,
+        featureEndDate: true,
+        featureId: true,
+        featureName: true,
+        featurePrereq: true,
+        featureStDate: true,
+        id: true,
+        updatedAt: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @nestAccessControl.UseRoles({
+    resource: "Project",
+    action: "update",
+    possession: "any",
+  })
+  @common.Post("/:id/features")
+  async connectFeatures(
+    @common.Param() params: ProjectWhereUniqueInput,
+    @common.Body() body: FeatureWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      features: {
+        connect: body,
+      },
+    };
+    await this.service.update({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @nestAccessControl.UseRoles({
+    resource: "Project",
+    action: "update",
+    possession: "any",
+  })
+  @common.Patch("/:id/features")
+  async updateFeatures(
+    @common.Param() params: ProjectWhereUniqueInput,
+    @common.Body() body: FeatureWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      features: {
+        set: body,
+      },
+    };
+    await this.service.update({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @nestAccessControl.UseRoles({
+    resource: "Project",
+    action: "update",
+    possession: "any",
+  })
+  @common.Delete("/:id/features")
+  async disconnectFeatures(
+    @common.Param() params: ProjectWhereUniqueInput,
+    @common.Body() body: FeatureWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      features: {
         disconnect: body,
       },
     };

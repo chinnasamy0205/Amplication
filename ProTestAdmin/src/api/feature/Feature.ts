@@ -1,3 +1,4 @@
+import { Project } from "../project/Project";
 import { Requirement } from "../requirement/Requirement";
 import { User } from "../user/User";
 
@@ -8,7 +9,7 @@ export type Feature = {
   featureId: string;
   featureName: string;
   featurePrereq: string | null;
-  featureProjId: string | null;
+  featureProjId?: Array<Project>;
   featureStDate: Date;
   hmProtestRequirements?: Array<Requirement>;
   id: string;

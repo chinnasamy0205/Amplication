@@ -13,6 +13,7 @@ import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import { IsString, IsOptional, IsDate, ValidateNested } from "class-validator";
 import { Type } from "class-transformer";
+import { ProjectCreateNestedManyWithoutFeaturesInput } from "./ProjectCreateNestedManyWithoutFeaturesInput";
 import { RequirementCreateNestedManyWithoutFeaturesInput } from "./RequirementCreateNestedManyWithoutFeaturesInput";
 import { UserCreateNestedManyWithoutFeaturesInput } from "./UserCreateNestedManyWithoutFeaturesInput";
 @InputType()
@@ -68,14 +69,15 @@ class FeatureCreateInput {
 
   @ApiProperty({
     required: false,
-    type: String,
+    type: () => ProjectCreateNestedManyWithoutFeaturesInput,
   })
-  @IsString()
+  @ValidateNested()
+  @Type(() => ProjectCreateNestedManyWithoutFeaturesInput)
   @IsOptional()
-  @Field(() => String, {
+  @Field(() => ProjectCreateNestedManyWithoutFeaturesInput, {
     nullable: true,
   })
-  featureProjId?: string | null;
+  featureProjId?: ProjectCreateNestedManyWithoutFeaturesInput;
 
   @ApiProperty({
     required: true,

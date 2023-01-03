@@ -13,6 +13,7 @@ import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import { IsDate, IsString, IsOptional, ValidateNested } from "class-validator";
 import { Type } from "class-transformer";
+import { Project } from "../../project/base/Project";
 import { Requirement } from "../../requirement/base/Requirement";
 import { User } from "../../user/base/User";
 @ObjectType()
@@ -76,14 +77,12 @@ class Feature {
 
   @ApiProperty({
     required: false,
-    type: String,
+    type: () => [Project],
   })
-  @IsString()
+  @ValidateNested()
+  @Type(() => Project)
   @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  featureProjId!: string | null;
+  featureProjId?: Array<Project>;
 
   @ApiProperty({
     required: true,

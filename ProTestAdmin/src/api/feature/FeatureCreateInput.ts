@@ -1,3 +1,4 @@
+import { ProjectCreateNestedManyWithoutFeaturesInput } from "./ProjectCreateNestedManyWithoutFeaturesInput";
 import { RequirementCreateNestedManyWithoutFeaturesInput } from "./RequirementCreateNestedManyWithoutFeaturesInput";
 import { UserCreateNestedManyWithoutFeaturesInput } from "./UserCreateNestedManyWithoutFeaturesInput";
 
@@ -7,7 +8,7 @@ export type FeatureCreateInput = {
   featureId: string;
   featureName: string;
   featurePrereq?: string | null;
-  featureProjId?: string | null;
+  featureProjId?: ProjectCreateNestedManyWithoutFeaturesInput;
   featureStDate: Date;
   hmProtestRequirements?: RequirementCreateNestedManyWithoutFeaturesInput;
   userId?: UserCreateNestedManyWithoutFeaturesInput;

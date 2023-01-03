@@ -10,7 +10,7 @@ https://docs.amplication.com/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { PrismaService } from "nestjs-prisma";
-import { Prisma, Project, Account, User } from "@prisma/client";
+import { Prisma, Project, Account, Feature, User } from "@prisma/client";
 
 export class ProjectServiceBase {
   constructor(protected readonly prisma: PrismaService) {}
@@ -56,6 +56,17 @@ export class ProjectServiceBase {
         where: { id: parentId },
       })
       .accountId(args);
+  }
+
+  async findFeatures(
+    parentId: string,
+    args: Prisma.FeatureFindManyArgs
+  ): Promise<Feature[]> {
+    return this.prisma.project
+      .findUniqueOrThrow({
+        where: { id: parentId },
+      })
+      .features(args);
   }
 
   async findUserId(

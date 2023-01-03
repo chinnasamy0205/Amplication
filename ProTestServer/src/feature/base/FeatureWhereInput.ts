@@ -16,6 +16,7 @@ import { Type } from "class-transformer";
 import { IsOptional, ValidateNested } from "class-validator";
 import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
 import { StringFilter } from "../../util/StringFilter";
+import { ProjectListRelationFilter } from "../../project/base/ProjectListRelationFilter";
 import { DateTimeFilter } from "../../util/DateTimeFilter";
 import { RequirementListRelationFilter } from "../../requirement/base/RequirementListRelationFilter";
 import { UserListRelationFilter } from "../../user/base/UserListRelationFilter";
@@ -78,14 +79,15 @@ class FeatureWhereInput {
 
   @ApiProperty({
     required: false,
-    type: StringNullableFilter,
+    type: () => ProjectListRelationFilter,
   })
-  @Type(() => StringNullableFilter)
+  @ValidateNested()
+  @Type(() => ProjectListRelationFilter)
   @IsOptional()
-  @Field(() => StringNullableFilter, {
+  @Field(() => ProjectListRelationFilter, {
     nullable: true,
   })
-  featureProjId?: StringNullableFilter;
+  featureProjId?: ProjectListRelationFilter;
 
   @ApiProperty({
     required: false,
