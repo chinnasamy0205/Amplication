@@ -14,6 +14,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import { IsDate, IsOptional, IsString, IsEnum } from "class-validator";
 import { Type } from "class-transformer";
 import { EnumCategoryMgtStatus } from "./EnumCategoryMgtStatus";
+
 @ObjectType()
 class CategoryMgt {
   @ApiProperty({
@@ -117,4 +118,5 @@ class CategoryMgt {
   })
   websiteName!: string | null;
 }
+
 export { CategoryMgt };
