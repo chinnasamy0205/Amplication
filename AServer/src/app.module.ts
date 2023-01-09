@@ -12,6 +12,7 @@ import { CategoryMgtModule } from "./categoryMgt/categoryMgt.module";
 import { ACLModule } from "./auth/acl.module";
 import { AuthModule } from "./auth/auth.module";
 import { HealthModule } from "./health/health.module";
+import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
 import { ConfigModule, ConfigService } from "@nestjs/config";
 import { ServeStaticModule } from "@nestjs/serve-static";
@@ -32,6 +33,7 @@ import { GraphQLModule } from "@nestjs/graphql";
     ACLModule,
     AuthModule,
     HealthModule,
+    PrismaModule,
     SecretsManagerModule,
     MorganModule,
     ConfigModule.forRoot({ isGlobal: true }),
