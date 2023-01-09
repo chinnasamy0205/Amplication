@@ -17,6 +17,7 @@ import { IsOptional, IsEnum } from "class-validator";
 import { StringFilter } from "../../util/StringFilter";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { EnumCategoryMgtStatus } from "./EnumCategoryMgtStatus";
+
 @InputType()
 class CategoryMgtWhereInput {
   @ApiProperty({
@@ -107,4 +108,5 @@ class CategoryMgtWhereInput {
   })
   websiteName?: StringNullableFilter;
 }
+
 export { CategoryMgtWhereInput };
