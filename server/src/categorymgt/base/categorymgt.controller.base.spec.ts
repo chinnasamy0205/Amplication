@@ -193,6 +193,30 @@ describe("Categorymgt", () => {
       });
   });
 
+  test("POST /categorymgts existing resource", async () => {
+    let agent = request(app.getHttpServer());
+    await agent
+      .post("/categorymgts")
+      .send(CREATE_INPUT)
+      .expect(HttpStatus.CREATED)
+      .expect({
+        ...CREATE_RESULT,
+        createdAt: CREATE_RESULT.createdAt.toISOString(),
+        dateRefT: CREATE_RESULT.dateRefT.toISOString(),
+        dateRefT1: CREATE_RESULT.dateRefT1.toISOString(),
+        updatedAt: CREATE_RESULT.updatedAt.toISOString(),
+      })
+      .then(function () {
+        agent
+          .post("/categorymgts")
+          .send(CREATE_INPUT)
+          .expect(HttpStatus.CONFLICT)
+          .expect({
+            statusCode: HttpStatus.CONFLICT,
+          });
+      });
+  });
+
   afterAll(async () => {
     await app.close();
   });
